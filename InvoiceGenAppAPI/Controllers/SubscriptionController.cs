@@ -88,7 +88,7 @@ namespace ZucoInvoiceApp.Controllers
             });
         }
 
-       [Authorize]
+        [Authorize]
         [HttpPost("select")]
         public async Task<IActionResult> SelectPlan([FromBody] SelectPlanRequest request)
         {

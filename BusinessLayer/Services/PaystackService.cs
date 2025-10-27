@@ -56,39 +56,58 @@ namespace BusinessLayer.Services
 
             var response = await _client.SendAsync(request);
             var content = await response.Content.ReadAsStringAsync();
-
+            Console.WriteLine(content);
             if (!response.IsSuccessStatusCode)
                 return new PaystackVerificationResponse { Status = false, Message = "Verification failed" };
 
             var json = JsonDocument.Parse(content);
             var data = json.RootElement.GetProperty("data");
 
+            string planName = "30 days"; // default fallback
+            if (data.TryGetProperty("metadata", out var meta))
+            {
+                if (meta.TryGetProperty("plan", out var planProp))
+                    planName = planProp.GetString();
+            }
+
             return new PaystackVerificationResponse
             {
                 Status = data.GetProperty("status").GetString() == "success",
                 Message = "Payment verified successfully",
                 CustomerEmail = data.GetProperty("customer").GetProperty("email").GetString(),
-                PlanName = data.TryGetProperty("metadata", out var meta) && meta.TryGetProperty("plan", out var plan)
-                    ? plan.GetString()
-                    : "30 days"
+                PlanName = planName
             };
         }
         public async Task<string> InitializePaymentAsync(string userEmail, string planName)
         {
             var plans = new Dictionary<string, int>
             {
-                { "30 Days", 1000 },
-                { "90 Days", 2500 },
-                { "6 Months", 4000 },
-                { "1 Year", 7000 },
+                { "30 days", 5000 },
+                { "90 days", 10000 },
+                { "6 months", 20000 },
+                { "1 year", 30000 },
             };
 
             double amount = plans[planName] * 100; // Paystack expects kobo
             var payload = new
             {
+                
                 email = userEmail,
                 amount = amount,
-                callback_url = $"{_config["AppUrl"]}/api/v1/subscription/verify"
+                callback_url = $"{_config["AppUrl"]}/api/v1/subscription/verify",
+                metadata = new
+                {
+                    plan = planName,
+                    custom_fields = new[]
+                    {
+                        new
+                        {
+                            display_name = "Subscription Plan",
+                            variable_name = "plan",
+                            value = planName
+                        }
+                    }
+                }
             };
 
             var request = new HttpRequestMessage(HttpMethod.Post, "https://api.paystack.co/transaction/initialize");

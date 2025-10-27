@@ -91,6 +91,7 @@ namespace BusinessLayer.Services
                 existing.EndDate = DateTime.UtcNow.AddDays(durationDays);
                 existing.IsActive = true;
                 existing.PaymentReference = reference;
+                
             }
 
             await _context.SaveChangesAsync();
