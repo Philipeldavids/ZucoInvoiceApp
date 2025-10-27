@@ -80,6 +80,12 @@ builder.Services.AddCors(options =>
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+using (var context = new ApplicationDbContext())
+{
+    // This will create the database if it doesn't exist
+    context.Database.EnsureCreated();
+    Console.WriteLine("Database ensured created.");
+}
 
 builder.Services.AddScoped<IInvoiceRepository, InvoiceRepository>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
