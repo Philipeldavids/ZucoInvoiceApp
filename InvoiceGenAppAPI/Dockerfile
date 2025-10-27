@@ -16,18 +16,18 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["./InvoiceGenAppAPI/ZucoInvoiceApp.csproj", "InvoiceGenAppAPI/"]
+COPY ["./InvoiceGenAppAPI/InvoiceGenAppAPI.csproj", "InvoiceGenAppAPI/"]
 COPY ["./BusinessLayer/BusinessLayer.csproj", "BusinessLayer/"]
 COPY ["./DataLayer/DataLayer.csproj", "DataLayer/"]
 COPY ["./Models/Models.csproj", "Models/"]
 RUN dotnet restore "./InvoiceGenAppAPI/ZucoInvoiceApp.csproj"
 COPY . .
 WORKDIR "/src/InvoiceGenAppAPI"
-RUN dotnet build "./ZucoInvoiceApp.csproj" -c %BUILD_CONFIGURATION% -o /app/build
+RUN dotnet build "./InvoiceGenAppAPI.csproj" -c %BUILD_CONFIGURATION% -o /app/build
 
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./ZucoInvoiceApp.csproj" -c %BUILD_CONFIGURATION% -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "./InvoiceGenAppAPI.csproj" -c %BUILD_CONFIGURATION% -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app

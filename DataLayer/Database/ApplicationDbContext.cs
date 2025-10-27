@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore.Design;
+using Microsoft.Extensions.Configuration;
 
 namespace DataLayer.Database
 {
@@ -63,5 +65,24 @@ namespace DataLayer.Database
         public DbSet<Contact> Contacts { get; set; }
 
         public DbSet<Subscription> Subscriptions { get; set; }
+    }
+
+    public class ApplicationDbContextFactory : IDesignTimeDbContextFactory<ApplicationDbContext>
+    {
+        public ApplicationDbContext CreateDbContext(string[] args)
+        {
+            // Point to the folder containing appsettings.json
+            var basePath = Path.Combine(Directory.GetCurrentDirectory(), @"..\InvoiceGenAppAPI");
+
+            var configuration = new ConfigurationBuilder()
+                .SetBasePath(basePath)
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+                .Build();
+
+            var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
+            optionsBuilder.UseNpgsql(configuration.GetConnectionString("DefaultConnection"));
+
+            return new ApplicationDbContext(optionsBuilder.Options);
+        }
     }
 }

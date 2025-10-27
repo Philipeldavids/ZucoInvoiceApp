@@ -84,7 +84,6 @@ C:\Users\USER\source\repos\ZucoInvoiceApp\InvoiceGenAppAPI\obj\Debug\net6.0\stat
 C:\Users\USER\source\repos\ZucoInvoiceApp\InvoiceGenAppAPI\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.ZucoInvoiceApp.props
 C:\Users\USER\source\repos\ZucoInvoiceApp\InvoiceGenAppAPI\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.ZucoInvoiceApp.props
 C:\Users\USER\source\repos\ZucoInvoiceApp\InvoiceGenAppAPI\obj\Debug\net6.0\staticwebassets.pack.json
-C:\Users\USER\source\repos\ZucoInvoiceApp\InvoiceGenAppAPI\obj\Debug\net6.0\staticwebassets.upToDateCheck.txt
 C:\Users\USER\source\repos\ZucoInvoiceApp\InvoiceGenAppAPI\obj\Debug\net6.0\ZucoInvo.D1BC04A7.Up2Date
 C:\Users\USER\source\repos\ZucoInvoiceApp\InvoiceGenAppAPI\obj\Debug\net6.0\ZucoInvoiceApp.dll
 C:\Users\USER\source\repos\ZucoInvoiceApp\InvoiceGenAppAPI\obj\Debug\net6.0\refint\ZucoInvoiceApp.dll

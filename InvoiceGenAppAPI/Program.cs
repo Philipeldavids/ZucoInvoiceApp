@@ -71,13 +71,14 @@ builder.Services.AddCors(options =>
         });
 });
 
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-
-options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")
-    , getAssembly => getAssembly.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName))
-    , ServiceLifetime.Transient);
 //builder.Services.AddDbContext<ApplicationDbContext>(options =>
-//options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+//options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")
+//    , getAssembly => getAssembly.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName))
+//    , ServiceLifetime.Transient);
+
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 
 builder.Services.AddScoped<IInvoiceRepository, InvoiceRepository>();

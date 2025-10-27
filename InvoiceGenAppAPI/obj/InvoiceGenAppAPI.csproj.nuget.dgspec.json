@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\USER\\source\\repos\\InvoiceGenAppAPI\\InvoiceGenAppAPI\\InvoiceGenAppAPI.csproj": {}
+    "C:\\Users\\USER\\source\\repos\\ZucoInvoiceApp\\InvoiceGenAppAPI\\InvoiceGenAppAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\USER\\source\\repos\\InvoiceGenAppAPI\\BusinessLayer\\BusinessLayer.csproj": {
+    "C:\\Users\\USER\\source\\repos\\ZucoInvoiceApp\\BusinessLayer\\BusinessLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\source\\repos\\InvoiceGenAppAPI\\BusinessLayer\\BusinessLayer.csproj",
+        "projectUniqueName": "C:\\Users\\USER\\source\\repos\\ZucoInvoiceApp\\BusinessLayer\\BusinessLayer.csproj",
         "projectName": "BusinessLayer",
-        "projectPath": "C:\\Users\\USER\\source\\repos\\InvoiceGenAppAPI\\BusinessLayer\\BusinessLayer.csproj",
+        "projectPath": "C:\\Users\\USER\\source\\repos\\ZucoInvoiceApp\\BusinessLayer\\BusinessLayer.csproj",
         "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\source\\repos\\InvoiceGenAppAPI\\BusinessLayer\\obj\\",
+        "outputPath": "C:\\Users\\USER\\source\\repos\\ZucoInvoiceApp\\BusinessLayer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -33,8 +33,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\USER\\source\\repos\\InvoiceGenAppAPI\\DataLayer\\DataLayer.csproj": {
-                "projectPath": "C:\\Users\\USER\\source\\repos\\InvoiceGenAppAPI\\DataLayer\\DataLayer.csproj"
+              "C:\\Users\\USER\\source\\repos\\ZucoInvoiceApp\\DataLayer\\DataLayer.csproj": {
+                "projectPath": "C:\\Users\\USER\\source\\repos\\ZucoInvoiceApp\\DataLayer\\DataLayer.csproj"
               }
             }
           }
@@ -43,12 +43,22 @@
           "warnAsError": [
             "NU1605"
           ]
-        }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "CloudinaryDotNet": {
+              "target": "Package",
+              "version": "[1.27.1, )"
+            },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[6.0.19, )"
@@ -56,6 +66,14 @@
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
               "version": "[6.0.18, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
+            "SixLabors.ImageSharp": {
+              "target": "Package",
+              "version": "[3.1.6, )"
             },
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
@@ -78,18 +96,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\USER\\source\\repos\\InvoiceGenAppAPI\\DataLayer\\DataLayer.csproj": {
+    "C:\\Users\\USER\\source\\repos\\ZucoInvoiceApp\\DataLayer\\DataLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\source\\repos\\InvoiceGenAppAPI\\DataLayer\\DataLayer.csproj",
+        "projectUniqueName": "C:\\Users\\USER\\source\\repos\\ZucoInvoiceApp\\DataLayer\\DataLayer.csproj",
         "projectName": "DataLayer",
-        "projectPath": "C:\\Users\\USER\\source\\repos\\InvoiceGenAppAPI\\DataLayer\\DataLayer.csproj",
+        "projectPath": "C:\\Users\\USER\\source\\repos\\ZucoInvoiceApp\\DataLayer\\DataLayer.csproj",
         "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\source\\repos\\InvoiceGenAppAPI\\DataLayer\\obj\\",
+        "outputPath": "C:\\Users\\USER\\source\\repos\\ZucoInvoiceApp\\DataLayer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -111,8 +129,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\USER\\source\\repos\\InvoiceGenAppAPI\\Models\\Models.csproj": {
-                "projectPath": "C:\\Users\\USER\\source\\repos\\InvoiceGenAppAPI\\Models\\Models.csproj"
+              "C:\\Users\\USER\\source\\repos\\ZucoInvoiceApp\\Models\\Models.csproj": {
+                "projectPath": "C:\\Users\\USER\\source\\repos\\ZucoInvoiceApp\\Models\\Models.csproj"
               }
             }
           }
@@ -121,7 +139,13 @@
           "warnAsError": [
             "NU1605"
           ]
-        }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net6.0": {
@@ -132,10 +156,6 @@
               "version": "[6.0.19, )"
             },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[6.0.18, )"
-            },
-            "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[6.0.18, )"
             },
@@ -155,6 +175,10 @@
               "target": "Package",
               "version": "[6.0.18, )"
             },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[6.0.22, )"
+            },
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
               "version": "[6.31.0, )"
@@ -176,18 +200,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\USER\\source\\repos\\InvoiceGenAppAPI\\InvoiceGenAppAPI\\InvoiceGenAppAPI.csproj": {
+    "C:\\Users\\USER\\source\\repos\\ZucoInvoiceApp\\InvoiceGenAppAPI\\InvoiceGenAppAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\source\\repos\\InvoiceGenAppAPI\\InvoiceGenAppAPI\\InvoiceGenAppAPI.csproj",
+        "projectUniqueName": "C:\\Users\\USER\\source\\repos\\ZucoInvoiceApp\\InvoiceGenAppAPI\\InvoiceGenAppAPI.csproj",
         "projectName": "InvoiceGenAppAPI",
-        "projectPath": "C:\\Users\\USER\\source\\repos\\InvoiceGenAppAPI\\InvoiceGenAppAPI\\InvoiceGenAppAPI.csproj",
+        "projectPath": "C:\\Users\\USER\\source\\repos\\ZucoInvoiceApp\\InvoiceGenAppAPI\\InvoiceGenAppAPI.csproj",
         "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\source\\repos\\InvoiceGenAppAPI\\InvoiceGenAppAPI\\obj\\",
+        "outputPath": "C:\\Users\\USER\\source\\repos\\ZucoInvoiceApp\\InvoiceGenAppAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -209,11 +233,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\USER\\source\\repos\\InvoiceGenAppAPI\\BusinessLayer\\BusinessLayer.csproj": {
-                "projectPath": "C:\\Users\\USER\\source\\repos\\InvoiceGenAppAPI\\BusinessLayer\\BusinessLayer.csproj"
+              "C:\\Users\\USER\\source\\repos\\ZucoInvoiceApp\\BusinessLayer\\BusinessLayer.csproj": {
+                "projectPath": "C:\\Users\\USER\\source\\repos\\ZucoInvoiceApp\\BusinessLayer\\BusinessLayer.csproj"
               },
-              "C:\\Users\\USER\\source\\repos\\InvoiceGenAppAPI\\DataLayer\\DataLayer.csproj": {
-                "projectPath": "C:\\Users\\USER\\source\\repos\\InvoiceGenAppAPI\\DataLayer\\DataLayer.csproj"
+              "C:\\Users\\USER\\source\\repos\\ZucoInvoiceApp\\DataLayer\\DataLayer.csproj": {
+                "projectPath": "C:\\Users\\USER\\source\\repos\\ZucoInvoiceApp\\DataLayer\\DataLayer.csproj"
               }
             }
           }
@@ -222,7 +246,13 @@
           "warnAsError": [
             "NU1605"
           ]
-        }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net6.0": {
@@ -236,21 +266,23 @@
               "target": "Package",
               "version": "[6.0.18, )"
             },
-            "Microsoft.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[6.0.18, )"
-            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
               "version": "[6.0.18, )"
             },
-            "Microsoft.EntityFrameworkCore.Tools": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
+            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
               "target": "Package",
-              "version": "[6.0.18, )"
+              "version": "[1.19.6, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[6.0.22, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL.Design": {
+              "target": "Package",
+              "version": "[1.1.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -280,18 +312,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\USER\\source\\repos\\InvoiceGenAppAPI\\Models\\Models.csproj": {
+    "C:\\Users\\USER\\source\\repos\\ZucoInvoiceApp\\Models\\Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\source\\repos\\InvoiceGenAppAPI\\Models\\Models.csproj",
+        "projectUniqueName": "C:\\Users\\USER\\source\\repos\\ZucoInvoiceApp\\Models\\Models.csproj",
         "projectName": "Models",
-        "projectPath": "C:\\Users\\USER\\source\\repos\\InvoiceGenAppAPI\\Models\\Models.csproj",
+        "projectPath": "C:\\Users\\USER\\source\\repos\\ZucoInvoiceApp\\Models\\Models.csproj",
         "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\source\\repos\\InvoiceGenAppAPI\\Models\\obj\\",
+        "outputPath": "C:\\Users\\USER\\source\\repos\\ZucoInvoiceApp\\Models\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -319,7 +351,13 @@
           "warnAsError": [
             "NU1605"
           ]
-        }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net6.0": {
@@ -354,7 +392,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }
