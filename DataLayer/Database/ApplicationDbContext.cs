@@ -17,16 +17,16 @@ namespace DataLayer.Database
         {
 
         }
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            var basePath = Path.Combine(Directory.GetCurrentDirectory(), @"..\InvoiceGenAppAPI");
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    var basePath = Path.Combine(Directory.GetCurrentDirectory(), @"..\InvoiceGenAppAPI");
 
-            var configuration = new ConfigurationBuilder()
-                .SetBasePath(basePath)
-                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
-                .Build();
-            optionsBuilder.UseNpgsql(configuration.GetConnectionString("DefaultConnection"));
-        }
+        //    var configuration = new ConfigurationBuilder()
+        //        .SetBasePath(basePath)
+        //        .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+        //        .Build();
+        //    optionsBuilder.UseNpgsql(configuration.GetConnectionString("DefaultConnection"));
+        //}
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Invoice>()
