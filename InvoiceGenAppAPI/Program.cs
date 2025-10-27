@@ -80,9 +80,11 @@ builder.Services.AddCors(options =>
 //builder.Services.AddDbContext<ApplicationDbContext>(options =>
 //options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-using (var context = new ApplicationDbContext())
+var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
+optionsBuilder.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"))
+
+using (var context = new ApplicationDbContext(optionsBuilder.Options))
 {
-    // This will create the database if it doesn't exist
     context.Database.EnsureCreated();
     Console.WriteLine("Database ensured created.");
 }

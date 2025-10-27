@@ -13,10 +13,10 @@ namespace DataLayer.Database
 {
     public class ApplicationDbContext : IdentityDbContext<User>
     {
-        //public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
-        //{
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+        {
 
-        //}
+        }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             var basePath = Path.Combine(Directory.GetCurrentDirectory(), @"..\InvoiceGenAppAPI");
