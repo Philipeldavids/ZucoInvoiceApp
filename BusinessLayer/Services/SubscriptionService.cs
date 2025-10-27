@@ -114,10 +114,11 @@ namespace BusinessLayer.Services
                 existing = new Subscription
                 {
                     UserId = userId,
-                    PlanName = "Free Tier",
+                    PlanName = planName,
                     StartDate = DateTime.UtcNow,
                     EndDate = DateTime.UtcNow.AddDays(30),
                     IsActive = true,
+                    PaymentReference = reference
                     //InvoicesUsed = 0,
                     //FreeLimit = 5, // free tier limit
                     //CreatedAt = DateTime.UtcNow
@@ -126,17 +127,16 @@ namespace BusinessLayer.Services
             }
             else {
 
-                var sub = new Subscription
-                {
-                    UserId = userId,
-                    PlanName = planName,
-                    StartDate = DateTime.UtcNow,
-                    EndDate = DateTime.UtcNow.AddDays(days),
-                    IsActive = true,
-                    PaymentReference = reference
-                };
 
-                _context.Subscriptions.Add(sub);
+                existing.UserId = userId;
+                existing.PlanName = planName;
+                existing.StartDate = DateTime.UtcNow;
+                existing.EndDate = DateTime.UtcNow.AddDays(days);
+                existing.IsActive = true;
+                existing.PaymentReference = reference;
+               
+
+                _context.Subscriptions.Add(existing);
             }
             
             await _context.SaveChangesAsync();
