@@ -64,64 +64,6 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "ZucoInvoiceApp.Controllers.ContactController",
-    "Method": "AddContact",
-    "RelativePath": "api/Contact/AddContact",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "contact",
-        "Type": "DataLayer.DTO.ContactDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "ZucoInvoiceApp.Controllers.ContactController",
-    "Method": "DeleteContact",
-    "RelativePath": "api/Contact/delete/{Id}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "Id",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "ZucoInvoiceApp.Controllers.ContactController",
-    "Method": "GetAllContacts",
-    "RelativePath": "api/Contact/GetAllContacts",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "ZucoInvoiceApp.Controllers.ContactController",
-    "Method": "GetContactByUser",
-    "RelativePath": "api/Contact/GetContactByUser/{userId}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "userId",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
     "ContainingType": "InvoiceGenAppAPI.Controllers.AccountController",
     "Method": "AddCompany",
     "RelativePath": "api/v1/Account/AddCompany",
@@ -212,6 +154,80 @@
         "Name": "userID",
         "Type": "System.String",
         "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ZucoInvoiceApp.Controllers.ContactController",
+    "Method": "AddContact",
+    "RelativePath": "api/v1/Contact/AddContact",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "contact",
+        "Type": "DataLayer.DTO.ContactDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ZucoInvoiceApp.Controllers.ContactController",
+    "Method": "DeleteContact",
+    "RelativePath": "api/v1/Contact/delete/{Id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ZucoInvoiceApp.Controllers.ContactController",
+    "Method": "GetAllContacts",
+    "RelativePath": "api/v1/Contact/GetAllContacts",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ZucoInvoiceApp.Controllers.ContactController",
+    "Method": "GetContactByUser",
+    "RelativePath": "api/v1/Contact/GetContactByUser/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ZucoInvoiceApp.Controllers.ContactController",
+    "Method": "GetContactEmailAdd",
+    "RelativePath": "api/v1/Contact/GetContactEmailAdd/{contactName}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "contactName",
+        "Type": "System.String",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -352,6 +368,57 @@
         "Name": "userId",
         "Type": "System.String",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "InvoiceGenAppAPI.Controllers.InvoiceController",
+    "Method": "SendInvoice",
+    "RelativePath": "api/v1/Invoice/SendInvoice",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ContentType",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ContentDisposition",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Headers",
+        "Type": "Microsoft.AspNetCore.Http.IHeaderDictionary",
+        "IsRequired": false
+      },
+      {
+        "Name": "Length",
+        "Type": "System.Int64",
+        "IsRequired": false
+      },
+      {
+        "Name": "Name",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "FileName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "invoiceId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "email",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

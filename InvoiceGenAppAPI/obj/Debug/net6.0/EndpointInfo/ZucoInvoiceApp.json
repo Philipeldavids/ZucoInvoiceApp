@@ -275,7 +275,7 @@
         }
       }
     },
-    "/api/Contact/GetAllContacts": {
+    "/api/v1/Contact/GetAllContacts": {
       "get": {
         "tags": [
           "Contact"
@@ -287,7 +287,7 @@
         }
       }
     },
-    "/api/Contact/GetContactByUser/{userId}": {
+    "/api/v1/Contact/GetContactByUser/{userId}": {
       "get": {
         "tags": [
           "Contact"
@@ -309,7 +309,29 @@
         }
       }
     },
-    "/api/Contact/AddContact": {
+    "/api/v1/Contact/GetContactEmailAdd/{contactName}": {
+      "get": {
+        "tags": [
+          "Contact"
+        ],
+        "parameters": [
+          {
+            "name": "contactName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/Contact/AddContact": {
       "post": {
         "tags": [
           "Contact"
@@ -340,7 +362,7 @@
         }
       }
     },
-    "/api/Contact/delete/{Id}": {
+    "/api/v1/Contact/delete/{Id}": {
       "delete": {
         "tags": [
           "Contact"
@@ -524,6 +546,86 @@
                   "style": "form"
                 },
                 "UserId": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/Invoice/SendInvoice": {
+      "post": {
+        "tags": [
+          "Invoice"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "ContentType": {
+                    "type": "string"
+                  },
+                  "ContentDisposition": {
+                    "type": "string"
+                  },
+                  "Headers": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "Length": {
+                    "type": "integer",
+                    "format": "int64"
+                  },
+                  "Name": {
+                    "type": "string"
+                  },
+                  "FileName": {
+                    "type": "string"
+                  },
+                  "invoiceId": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  }
+                }
+              },
+              "encoding": {
+                "ContentType": {
+                  "style": "form"
+                },
+                "ContentDisposition": {
+                  "style": "form"
+                },
+                "Headers": {
+                  "style": "form"
+                },
+                "Length": {
+                  "style": "form"
+                },
+                "Name": {
+                  "style": "form"
+                },
+                "FileName": {
+                  "style": "form"
+                },
+                "invoiceId": {
+                  "style": "form"
+                },
+                "email": {
                   "style": "form"
                 }
               }

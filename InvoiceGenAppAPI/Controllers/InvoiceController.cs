@@ -5,6 +5,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Models;
 using Models.DTO;
+using static BusinessLayer.Services.EmailService;
+using System.Net.Mail;
+using System.Net.Mime;
 
 namespace InvoiceGenAppAPI.Controllers
 {
@@ -14,9 +17,11 @@ namespace InvoiceGenAppAPI.Controllers
     public class InvoiceController : ControllerBase
     {
         private readonly IInvoiceService _invoiceService;
-        public InvoiceController(IInvoiceService invoiceService) 
+        private readonly IEmailService _emailService;
+        public InvoiceController(IInvoiceService invoiceService, IEmailService emailService) 
         {
             _invoiceService = invoiceService;
+            _emailService = emailService;
         }
 
         
@@ -117,6 +122,37 @@ namespace InvoiceGenAppAPI.Controllers
             }
             
         }
+
+        [HttpPost("SendInvoice")]
+        public async Task<IActionResult> SendInvoice([FromForm] IFormFile file, [FromForm] string invoiceId, [FromForm] string email)
+        {
+            if (file == null || file.Length == 0)
+                return BadRequest("Invalid file");
+
+            // Save temporarily or stream directly
+            using var stream = new MemoryStream();
+            await file.CopyToAsync(stream);
+            var pdfBytes = stream.ToArray();
+            var attachment = new EmailAttachment()
+            {
+                FileName = "Invoice.pdf",
+                FileBytes = pdfBytes,
+                ContentType = "application/pdf"
+            };
+
+            // Send via your email service (e.g., SMTP, SendGrid)
+            await _emailService.SendEmailAsync(
+
+                email,
+                $"Invoice #{invoiceId}",
+                "Please find attached your invoice.",
+            attachment            
+
+            );
+
+            return Ok(new { message = "Invoice sent successfully" });
+        }
+
 
         [HttpPatch("UpdateInvoice")]
         public async Task<IActionResult> UpdateInvoiceAsync(Invoice invoice)

@@ -6,7 +6,7 @@ using Models;
 
 namespace ZucoInvoiceApp.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/v1/[controller]")]
     [ApiController]
     public class ContactController : ControllerBase
     {
@@ -48,7 +48,17 @@ namespace ZucoInvoiceApp.Controllers
                 return BadRequest(ex.Message);
             }
         }
+        [HttpGet("GetContactEmailAdd/{contactName}")]
+       
+        public async Task<IActionResult> GetContactEmailAdd(string contactName)
+        {
+            var contacts = await _contactService.GetAll();
 
+            var contactMail =  contacts.Where(x => x.CustomerName == contactName).Select(x=>x.CustomerEmail).FirstOrDefault();
+
+            return Ok(contactMail);
+
+        }
         [HttpPost("AddContact")]
 
         public async Task<IActionResult> AddContact([FromBody] ContactDTO contact)
