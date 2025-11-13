@@ -1,6 +1,7 @@
 ﻿using DataLayer.DTO;
 using DataLayer.Repository;
 using Models;
+using Models.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +28,25 @@ namespace BusinessLayer.Services
 
             return contact;
 
+        }
+
+        public async Task<bool> EditContact(string Id, ContactDTO contact)
+        {
+
+            var contct = await GetContactById(Id);
+           
+
+            contct.CustomerAddress = contact.CustomerAddress;
+            contct.CustomerEmail = contact.CustomerEmail;
+            contct.CustomerName = contact.CustomerName; 
+            contct.CustomerPhoneNumber = contact.CustomerPhoneNumber;
+
+            return await _contactRepository.EditContact(contct);
+        }
+
+        public async Task<Contact> GetContactById(string Id)
+        {
+            return await _contactRepository.GetContactById(Id);
         }
 
         public async Task<bool> DeleteContact(string Id)

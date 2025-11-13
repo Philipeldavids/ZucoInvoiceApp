@@ -3,6 +3,7 @@ using DataLayer.DTO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Models;
+using Models.DTO;
 
 namespace ZucoInvoiceApp.Controllers
 {
@@ -69,6 +70,37 @@ namespace ZucoInvoiceApp.Controllers
                 return Ok(result);
             }
             catch(Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+
+        [HttpPut("EditContact/{contactId}")]
+
+        public async Task<IActionResult> EditContact(string contactId, ContactDTO contact)
+        {
+            try
+            {
+                var result = await _contactService.EditContact(contactId, contact);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        } 
+
+        [HttpGet("GetcontactbyId/{Id}")]
+
+        public async Task<IActionResult> GetContactById(string Id)
+        {
+            try
+            {
+                var result = await _contactService.GetContactById(Id);
+                return Ok(result);
+            }
+            catch (Exception ex)
             {
                 return BadRequest(ex.Message);
             }

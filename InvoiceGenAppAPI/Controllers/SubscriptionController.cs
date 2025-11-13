@@ -114,7 +114,7 @@ namespace ZucoInvoiceApp.Controllers
             var verificationResult = await _paystackService.VerifyPaymentAsync(reference);
             if (verificationResult == null || !verificationResult.Status)
             {
-                return Redirect($"http://zucoinvoice.vercel.app/dashboard?status=failed&message=Payment%20verification%20failed");
+                return Redirect($"http://zuco.com.ng/dashboard?status=failed&message=Payment%20verification%20failed");
             }
 
             var email = verificationResult.CustomerEmail;
@@ -122,7 +122,7 @@ namespace ZucoInvoiceApp.Controllers
 
             await _service.ActivatePaidPlanAsync(email, plan, reference);
 
-            return Redirect($"http://zucoinvoice.vercel.app/dashboard?status=success&message=Subscription%20activated%20successfully");
+            return Redirect($"http://zuco.com.ng/dashboard?status=success&message=Subscription%20activated%20successfully");
         }
     }
 

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Xsl;
 
 namespace DataLayer.Repository
 {
@@ -29,6 +30,17 @@ namespace DataLayer.Repository
             return contact;
         }
 
+        public async Task<bool> EditContact(Contact contact)
+        {
+            _context.Contacts.Update(contact);
+            await _context.SaveChangesAsync();
+            return true;
+        }
+        public async Task<Contact> GetContactById(string Id)
+        {
+            var contact = _context.Contacts.Where(x => x.ContactId == Id).FirstOrDefault();
+            return contact;
+        }
         public async Task<bool> AddContact(Contact contact)
         {
             _context.Contacts.Add(contact);

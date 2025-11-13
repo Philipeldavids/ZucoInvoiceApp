@@ -192,12 +192,49 @@
   },
   {
     "ContainingType": "ZucoInvoiceApp.Controllers.ContactController",
+    "Method": "EditContact",
+    "RelativePath": "api/v1/Contact/EditContact/{contactId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "contactId",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "contact",
+        "Type": "DataLayer.DTO.ContactDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ZucoInvoiceApp.Controllers.ContactController",
     "Method": "GetAllContacts",
     "RelativePath": "api/v1/Contact/GetAllContacts",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ZucoInvoiceApp.Controllers.ContactController",
+    "Method": "GetContactById",
+    "RelativePath": "api/v1/Contact/GetcontactbyId/{Id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {
