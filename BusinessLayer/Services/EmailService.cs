@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Extensions.Configuration;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Mail;
@@ -13,20 +14,24 @@ namespace BusinessLayer.Services
         Task SendEmailAsync(string to, string subject, string body, EmailAttachment Attachment = null);
     }
 
+    public class EmailAttachment
+    {
+        public string FileName { get; set; }
+        public byte[] FileBytes { get; set; }
+        public string ContentType { get; set; }
+
+    }
     public class EmailService : IEmailService
     {
-        public class EmailAttachment
+        private readonly IConfiguration _config;
+        //private string host;
+        //private string Email;
+        //private string Password;
+        //private int PortNumber;
+        public EmailService(IConfiguration config)
         {
-            public string FileName { get; set; }
-            public byte[] FileBytes { get; set; }
-            public string ContentType { get; set; }
-
-            //public EmailAttachment(string fileName, byte[] fileBytes, string contentType)
-            //{
-            //    FileName = fileName;
-            //    FileBytes = fileBytes;
-            //    ContentType = contentType;
-            //}
+            _config = config;
+        
         }
         public async Task SendEmailAsync(string to, string subject, string body, EmailAttachment Attachment = null)
         {
@@ -35,7 +40,7 @@ namespace BusinessLayer.Services
             mail.Subject = subject;
             mail.Body = body;
             mail.IsBodyHtml = true;
-            mail.From = new MailAddress("noreply@yourapp.com", "YourApp");
+            mail.From = new MailAddress(_config["EmailSettings:Email"], "ZucoInvoice");
             mail.Attachments.Add(new Attachment(
                    new MemoryStream(Attachment.FileBytes),
                    Attachment.FileName,
@@ -44,10 +49,10 @@ namespace BusinessLayer.Services
 
 
 
-            using var smtp = new SmtpClient("smtp.yourprovider.com")
+            using var smtp = new SmtpClient(_config["EmailSettings:Host"])
             {
-                Port = 587,
-                Credentials = new System.Net.NetworkCredential("your-email", "your-password"),
+                Port = Convert.ToInt32(_config["EmailSettings:port"]),
+                Credentials = new System.Net.NetworkCredential(_config["EmailSettings:Email"], _config["EmailSettings:Password"]),
                 EnableSsl = true,
             };
 

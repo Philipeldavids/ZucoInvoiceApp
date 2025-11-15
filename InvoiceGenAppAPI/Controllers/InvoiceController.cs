@@ -124,7 +124,7 @@ namespace InvoiceGenAppAPI.Controllers
         }
 
         [HttpPost("SendInvoice")]
-        public async Task<IActionResult> SendInvoice([FromForm] IFormFile file, [FromForm] string invoiceId, [FromForm] string email)
+        public async Task<IActionResult> SendInvoice([FromForm] IFormFile file, [FromForm] string invoiceId, [FromForm] string email, [FromForm] string businessName)
         {
             if (file == null || file.Length == 0)
                 return BadRequest("Invalid file");
@@ -145,7 +145,7 @@ namespace InvoiceGenAppAPI.Controllers
 
                 email,
                 $"Invoice #{invoiceId}",
-                "Please find attached your invoice.",
+                $"Please find attached your invoice from {businessName}",
             attachment            
 
             );

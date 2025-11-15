@@ -456,6 +456,11 @@
         "Name": "email",
         "Type": "System.String",
         "IsRequired": false
+      },
+      {
+        "Name": "businessName",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

@@ -663,6 +663,9 @@
                   },
                   "email": {
                     "type": "string"
+                  },
+                  "businessName": {
+                    "type": "string"
                   }
                 }
               },
@@ -689,6 +692,9 @@
                   "style": "form"
                 },
                 "email": {
+                  "style": "form"
+                },
+                "businessName": {
                   "style": "form"
                 }
               }
