@@ -20,6 +20,7 @@ namespace InvoiceGenAppAPI.Controllers
         {
             _userService = userService;
             _userManager = userManager;
+            _emailService = emailService;
 
         }
 
@@ -52,7 +53,7 @@ namespace InvoiceGenAppAPI.Controllers
                 return BadRequest("User not found");
 
             var token = await _userManager.GeneratePasswordResetTokenAsync(user);
-            var resetLink = $"https://yourfrontend.com/reset-password?email={dto.Email}&token={Uri.EscapeDataString(token)}";
+            var resetLink = $"https://zuco.com.ng/reset-password?email={dto.Email}&token={Uri.EscapeDataString(token)}";
 
             await _emailService.SendEmailAsync(dto.Email, "Reset Password",
                 $"Click the link below to reset your password:<br/><a href='{resetLink}'>Reset Password</a>");

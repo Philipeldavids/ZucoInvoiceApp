@@ -41,11 +41,14 @@ namespace BusinessLayer.Services
             mail.Body = body;
             mail.IsBodyHtml = true;
             mail.From = new MailAddress(_config["EmailSettings:Email"], "ZucoInvoice");
-            mail.Attachments.Add(new Attachment(
-                   new MemoryStream(Attachment.FileBytes),
-                   Attachment.FileName,
-                   Attachment.ContentType));
 
+            if (Attachment != null)
+            {
+                mail.Attachments.Add(new Attachment(
+                       new MemoryStream(Attachment.FileBytes),
+                       Attachment.FileName,
+                       Attachment.ContentType));
+            }
 
 
 
