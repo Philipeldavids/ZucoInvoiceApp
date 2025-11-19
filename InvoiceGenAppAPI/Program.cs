@@ -71,23 +71,23 @@ builder.Services.AddCors(options =>
         });
 });
 
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-
-options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")
-    , getAssembly => getAssembly.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName))
-    , ServiceLifetime.Transient);
-
 //builder.Services.AddDbContext<ApplicationDbContext>(options =>
-//options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-//var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
-//optionsBuilder.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
+//options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")
+//    , getAssembly => getAssembly.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName))
+//    , ServiceLifetime.Transient);
 
-//using (var context = new ApplicationDbContext(optionsBuilder.Options))
-//{
-//    context.Database.EnsureCreated();
-//    Console.WriteLine("Database ensured created.");
-//}
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
+optionsBuilder.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
+
+using (var context = new ApplicationDbContext(optionsBuilder.Options))
+{
+    context.Database.EnsureCreated();
+    Console.WriteLine("Database ensured created.");
+}
 
 builder.Services.AddScoped<IInvoiceRepository, InvoiceRepository>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
