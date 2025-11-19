@@ -16,11 +16,12 @@ namespace InvoiceGenAppAPI.Controllers
     public class AccountController : ControllerBase
     {
         private readonly IUserService _userService;
+        private readonly IEmailService _emailService;
        
-        public AccountController(IUserService userService)
+        public AccountController(IUserService userService, IEmailService emailService)
         {
             _userService = userService;
-            
+            _emailService = emailService;
         }
 
         [HttpPut("AddCompany")]
@@ -41,8 +42,36 @@ namespace InvoiceGenAppAPI.Controllers
              return BadRequest(ex.Message);
             }
         }
-       
-        
+
+        [HttpPost("SendBulkEmail")]
+
+        public async Task<IActionResult> SendBulkMessage(string heading, string messagebody)
+        {
+            try
+            {
+                var users = await _userService.GetUser();
+
+                if (users != null)
+                {
+                    foreach (var user in users)
+                    {
+                        await _emailService.SendEmailAsync(
+                            user.Email,
+                            heading,
+                            messagebody
+                            );
+                    }
+                    return Ok("Email Sent Successfully");
+                }
+
+                return BadRequest("No Email Accounts on App");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            
+        }
         [HttpGet("GetUserById")]
         public async Task<IActionResult> GetUserById(string userId)
         {

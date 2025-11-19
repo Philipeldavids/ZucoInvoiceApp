@@ -33,6 +33,8 @@ namespace BusinessLayer.Services
             _config = config;
         
         }
+
+
         public async Task SendEmailAsync(string to, string subject, string body, EmailAttachment Attachment = null)
         {
             using var mail = new MailMessage();

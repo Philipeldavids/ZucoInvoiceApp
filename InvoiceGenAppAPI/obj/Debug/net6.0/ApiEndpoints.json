@@ -139,6 +139,27 @@
   },
   {
     "ContainingType": "InvoiceGenAppAPI.Controllers.AccountController",
+    "Method": "SendBulkMessage",
+    "RelativePath": "api/v1/Account/SendBulkEmail",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "heading",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "messagebody",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "InvoiceGenAppAPI.Controllers.AccountController",
     "Method": "Update",
     "RelativePath": "api/v1/Account/UpdateUser",
     "HttpMethod": "PATCH",
