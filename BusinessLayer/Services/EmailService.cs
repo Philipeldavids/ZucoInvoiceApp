@@ -37,31 +37,38 @@ namespace BusinessLayer.Services
 
         public async Task SendEmailAsync(string to, string subject, string body, EmailAttachment Attachment = null)
         {
-            using var mail = new MailMessage();
-            mail.To.Add(to);
-            mail.Subject = subject;
-            mail.Body = body;
-            mail.IsBodyHtml = true;
-            mail.From = new MailAddress(_config["EmailSettings:Email"], "ZucoInvoice");
-
-            if (Attachment != null)
+            try
             {
-                mail.Attachments.Add(new Attachment(
-                       new MemoryStream(Attachment.FileBytes),
-                       Attachment.FileName,
-                       Attachment.ContentType));
+                using var mail = new MailMessage();
+                mail.To.Add(to);
+                mail.Subject = subject;
+                mail.Body = body;
+                mail.IsBodyHtml = true;
+                mail.From = new MailAddress(_config["EmailSettings:Email"], "ZucoInvoice");
+
+                if (Attachment != null)
+                {
+                    mail.Attachments.Add(new Attachment(
+                           new MemoryStream(Attachment.FileBytes),
+                           Attachment.FileName,
+                           Attachment.ContentType));
+                }
+
+
+
+                using var smtp = new SmtpClient(_config["EmailSettings:Host"])
+                {
+                    Port = Convert.ToInt32(_config["EmailSettings:port"]),
+                    Credentials = new System.Net.NetworkCredential(_config["EmailSettings:Email"], _config["EmailSettings:Password"]),
+                    EnableSsl = true,
+                };
+
+                await smtp.SendMailAsync(mail);
             }
-
-
-
-            using var smtp = new SmtpClient(_config["EmailSettings:Host"])
+            catch(Exception ex)
             {
-                Port = Convert.ToInt32(_config["EmailSettings:port"]),
-                Credentials = new System.Net.NetworkCredential(_config["EmailSettings:Email"], _config["EmailSettings:Password"]),
-                EnableSsl = true,
-            };
-
-            await smtp.SendMailAsync(mail);
+                throw ex;
+            }
         }
     }
 }

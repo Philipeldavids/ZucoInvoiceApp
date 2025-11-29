@@ -13,9 +13,11 @@ namespace BusinessLayer.Services
     public class UserService: IUserService
     {
         private readonly IUserRepository _userRepository;
-        public UserService(IUserRepository userRepository) 
+        private readonly IEmailService _emailService;
+        public UserService(IUserRepository userRepository, IEmailService emailService) 
         {
             _userRepository = userRepository;
+            _emailService = emailService;
         }
 
         public async Task<List<User>> GetUser()
@@ -37,6 +39,15 @@ namespace BusinessLayer.Services
 
                 result = await _userRepository.AddUser(usr);                
             }
+            await _emailService.SendEmailAsync(
+        user.Email,
+        "Welcome to ZucoInvoice!",
+        $@"<h2>Welcome {user.Email}!</h2>
+            <p>Your ZucoInvoice account has been created successfully.</p>
+            <p>You can now start creating invoices, tracking payments, and managing your clients.</p>
+            <br />
+            <strong>Thank you for choosing ZucoInvoice 🚀</strong>"
+    );
             return result;
         }
 

@@ -89,6 +89,11 @@ using (var context = new ApplicationDbContext(optionsBuilder.Options))
     Console.WriteLine("Database ensured created.");
 }
 
+builder.Services.Configure<DataProtectionTokenProviderOptions>(options =>
+{
+    options.TokenLifespan = TimeSpan.FromHours(6);
+});
+
 builder.Services.AddScoped<IInvoiceRepository, InvoiceRepository>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IInvoiceService, InvoiceService>();
@@ -118,11 +123,12 @@ builder.Services.AddSingleton(cloudinary);
 builder.Services.AddIdentity<User, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
+                
 
 builder.Services.Configure<IdentityOptions>(options =>
 {
     options.User.RequireUniqueEmail = true;
-    options.Password.RequiredLength = 7;
+    options.Password.RequiredLength = 7; 
 });
 
 

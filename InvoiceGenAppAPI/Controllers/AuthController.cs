@@ -3,8 +3,13 @@ using DataLayer.DTO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.WebUtilities;
 using Models;
 using Models.DTO;
+using Newtonsoft.Json.Linq;
+using System.Net;
+using System.Text;
+using System.Text.Encodings.Web;
 
 namespace InvoiceGenAppAPI.Controllers
 {
@@ -53,10 +58,14 @@ namespace InvoiceGenAppAPI.Controllers
                 return BadRequest("User not found");
 
             var token = await _userManager.GeneratePasswordResetTokenAsync(user);
-            var resetLink = $"https://zuco.com.ng/reset-password?email={dto.Email}&token={Uri.EscapeDataString(token)}";
+            Console.WriteLine(token);
+            var encodedToken = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(token));
+            //var encoded = Uri.EscapeDataString(token);
+            
+            var resetLink = $"https://zuco.com.ng/reset-password?email={dto.Email}&token={encodedToken}";
 
             await _emailService.SendEmailAsync(dto.Email, "Reset Password",
-                $"Click the link below to reset your password:<br/><a href='{resetLink}'>Reset Password</a>");
+                $"Click the link below to reset your password:<br/><a href='{HtmlEncoder.Default.Encode(resetLink)}'>Reset Password</a>");
 
             return Ok("Password reset link sent successfully");
         }
@@ -68,7 +77,8 @@ namespace InvoiceGenAppAPI.Controllers
             if (user == null)
                 return BadRequest("User not found");
 
-            var result = await _userManager.ResetPasswordAsync(user, dto.Token, dto.NewPassword);
+          
+            var result = await _userManager.ResetPasswordAsync(user, Encoding.UTF8.GetString(WebEncoders.Base64UrlDecode(dto.Token)), dto.NewPassword);
             if (!result.Succeeded)
                 return BadRequest(result.Errors);
 
