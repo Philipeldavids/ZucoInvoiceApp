@@ -11,5 +11,6 @@ namespace DataLayer.Interface
     {
         Task<CompanyProfile?> GetByUserIdAsync(Guid userId);
         Task CreateOrUpdateAsync(CompanyProfile profile);
+        Task<bool> SaveImageurl(Guid userid, string url);
     }
 }

@@ -16,6 +16,7 @@ namespace DataLayer.Repository
         private IItemRepository _itemRepository;
         private IContactRepository _contactRepository;
         private ISubscriptionRepository _subscriptionRepository;
+            private ICompanyProfileRepository _companyProfileRepository;
         //private IUserRepository _userRepository;
 
         public UnitOfWork(ApplicationDbContext applicationDbContext)
@@ -31,6 +32,8 @@ namespace DataLayer.Repository
         public IContactRepository ContactRepository => _contactRepository ??= new ContactRepository(_applicationDbContext);
 
         public ISubscriptionRepository SubscriptionRepository => _subscriptionRepository ??= new SubscriptionRepository(_applicationDbContext);
+
+        public ICompanyProfileRepository CompanyProfileRepository => _companyProfileRepository ??= new CompanyProfileRepository(_applicationDbContext);
 
         //public IUserRepository UserRepository => _userRepository ??= new UserRepository(_applicationDbContext);
     }

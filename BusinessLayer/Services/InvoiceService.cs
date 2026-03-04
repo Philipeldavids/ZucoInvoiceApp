@@ -66,12 +66,15 @@ namespace BusinessLayer.Services
             
             Invoice invoice = new Invoice();
             var itemList = JsonConvert.DeserializeObject<List<Item>>(invoicedto.Items);
+
+            
             try
             {
                 if(invoicedto.Image != null)
                 {
                     var getImageUrl = await _cloudinaryService.UploadFileAsync(invoicedto.Image);
                     invoice.ImageURl = getImageUrl.SecureUrl.ToString();
+                    await _unitOfWork.CompanyProfileRepository.SaveImageurl(Guid.Parse(invoicedto.UserId), invoice.ImageURl);
                 }
                
                 

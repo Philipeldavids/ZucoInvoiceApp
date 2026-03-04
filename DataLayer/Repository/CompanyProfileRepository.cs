@@ -19,6 +19,19 @@ namespace DataLayer.Repository
             _context = context;
         }
 
+        public async Task<bool> SaveImageurl(Guid userid, string url)
+        {
+            var user = await GetByUserIdAsync(userid);
+            if(user != null)
+            {
+                user.LogoUrl = url;
+                _context.CompanyProfiles.Update(user);
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            return false;            
+
+        }
         public async Task<CompanyProfile?> GetByUserIdAsync(Guid userId)
         {
             return await _context.CompanyProfiles.FirstOrDefaultAsync(x => x.UserId == userId);
