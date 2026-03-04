@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\USER\\source\\repos\\ZucoInvoiceApp\\Models\\Models.csproj": {}
+    "C:\\Users\\oloru\\source\\repos\\ZucoInvoiceApp\\Models\\Models.csproj": {}
   },
   "projects": {
-    "C:\\Users\\USER\\source\\repos\\ZucoInvoiceApp\\Models\\Models.csproj": {
+    "C:\\Users\\oloru\\source\\repos\\ZucoInvoiceApp\\Models\\Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\source\\repos\\ZucoInvoiceApp\\Models\\Models.csproj",
+        "projectUniqueName": "C:\\Users\\oloru\\source\\repos\\ZucoInvoiceApp\\Models\\Models.csproj",
         "projectName": "Models",
-        "projectPath": "C:\\Users\\USER\\source\\repos\\ZucoInvoiceApp\\Models\\Models.csproj",
-        "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\source\\repos\\ZucoInvoiceApp\\Models\\obj\\",
+        "projectPath": "C:\\Users\\oloru\\source\\repos\\ZucoInvoiceApp\\Models\\Models.csproj",
+        "packagesPath": "C:\\Users\\oloru\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\oloru\\source\\repos\\ZucoInvoiceApp\\Models\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\oloru\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -45,7 +44,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.100"
+        "SdkAnalysisLevel": "10.0.100"
       },
       "frameworks": {
         "net6.0": {
@@ -80,7 +79,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

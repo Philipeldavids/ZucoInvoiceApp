@@ -22,5 +22,7 @@ namespace DataLayer.Interface
         Task<bool> DeleteInvoice(int Id);
         Task<int?> GetInvoiceNumber();
 
+        Task<string?> GetImageurl();
+
     }
 }

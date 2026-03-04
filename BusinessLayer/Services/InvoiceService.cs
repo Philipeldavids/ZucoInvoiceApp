@@ -133,5 +133,12 @@ namespace BusinessLayer.Services
 
             return result;
         }
+
+        public async Task<string> GetImageUrl()
+        {
+            var res = await _unitOfWork.InvoiceRepository.GetImageurl();
+
+            return res;
+        }
     }
 }

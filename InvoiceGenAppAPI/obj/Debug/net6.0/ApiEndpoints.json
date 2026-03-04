@@ -545,6 +545,32 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "ZucoInvoiceApp.Controllers.SettingsController",
+    "Method": "Get",
+    "RelativePath": "api/v1/Settings/getcompany",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ZucoInvoiceApp.Controllers.SettingsController",
+    "Method": "Save",
+    "RelativePath": "api/v1/Settings/savecompany",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Models.DTO.CompanyProfileDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "ZucoInvoiceApp.Controllers.SubscriptionController",
     "Method": "CanGenerate",
     "RelativePath": "api/v1/Subscription/can-generate/{userId}",

@@ -29,6 +29,14 @@ namespace DataLayer.Database
         //}
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<CompanyProfile>(entity =>
+            {
+                entity.HasKey(x => x.Id);
+                entity.HasIndex(x => x.UserId).IsUnique(); // One profile per user
+                entity.Property(x => x.CompanyName).IsRequired().HasMaxLength(150);
+                entity.Property(x => x.Email).HasMaxLength(150);
+            });
+
             modelBuilder.Entity<Invoice>()
                 .HasKey(e => e.InvoiceID);
 
@@ -68,6 +76,11 @@ namespace DataLayer.Database
 
             base.OnModelCreating(modelBuilder);
         }
+
+        public DbSet<CompanyProfile> CompanyProfiles { get; set; }
+
+      
+            
         public DbSet<Invoice> Invoices { get; set; }
         public DbSet<Item> Items { get; set; }
 

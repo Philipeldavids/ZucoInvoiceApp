@@ -94,6 +94,8 @@ builder.Services.Configure<DataProtectionTokenProviderOptions>(options =>
     options.TokenLifespan = TimeSpan.FromHours(6);
 });
 
+builder.Services.AddScoped<ICompanyProfileRepository, CompanyProfileRepository>();
+builder.Services.AddScoped<CompanyProfileService>();
 builder.Services.AddScoped<IInvoiceRepository, InvoiceRepository>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IInvoiceService, InvoiceService>();

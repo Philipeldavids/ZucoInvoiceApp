@@ -18,5 +18,7 @@ namespace BusinessLayer.Services
         Task<bool> UpdateInvoiceAsync(Invoice invoice);
         Task<bool> DeleteInvoiceAsync(int Id);
         Task<List<Invoice>> GetInvoice();
+
+        Task<string> GetImageUrl();
     }
 }

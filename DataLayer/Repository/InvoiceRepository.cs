@@ -113,6 +113,18 @@ namespace DataLayer.Repository
             }
             return invoiceNo;
         }
+
+        public async Task<string?> GetImageurl()
+        {
+            var imageurl = _applicationDbContext.Invoices.Select(x => x.ImageURl).FirstOrDefault();
+
+            if(imageurl != null)
+            {
+                return imageurl;
+            }
+            return null;
+        }
+
     }
 
 

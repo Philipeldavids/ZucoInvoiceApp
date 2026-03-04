@@ -1,12 +1,1 @@
-{
-  "Version": 1,
-  "Hash": "BEt6UeN7lTzXcu1a2LQYRT+2TDmxmncUfL6G0OxF9j8=",
-  "Source": "ZucoInvoiceApp",
-  "BasePath": "_content/ZucoInvoiceApp",
-  "Mode": "Default",
-  "ManifestType": "Build",
-  "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": [],
-  "Endpoints": []
-}
+{"Version":1,"Hash":"WnqWvDa8o0hHJDZKXypM2lYQ44uIbEzHEBWDRjchmBs=","Source":"ZucoInvoiceApp","BasePath":"/","Mode":"Root","ManifestType":"Build","ReferencedProjectsConfiguration":[],"DiscoveryPatterns":[],"Assets":[],"Endpoints":[]}
