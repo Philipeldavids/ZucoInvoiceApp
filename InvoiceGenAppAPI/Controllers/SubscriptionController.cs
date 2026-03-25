@@ -41,6 +41,7 @@ namespace ZucoInvoiceApp.Controllers
 
 
         [HttpGet("current/{Id}")]
+        [Authorize]
         public async Task<IActionResult> GetCurrentSubscription(string Id)
         {
             var subscription = await _context.Subscriptions

@@ -80,6 +80,7 @@ namespace BusinessLayer.Services
                     EndDate = DateTime.UtcNow.AddDays(durationDays),
                     IsActive = true,
                     PaymentReference = reference
+                    
                 };
 
                 _context.Subscriptions.Add(existing);

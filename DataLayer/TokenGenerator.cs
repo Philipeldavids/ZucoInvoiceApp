@@ -35,7 +35,7 @@ namespace DataLayer
                         issuer: _configuration["Jwt:Issuer"],
                         audience: _configuration["Jwt:Audience"],
                         claims: authClaims,
-                        expires: DateTime.Now.AddMinutes(10),
+                        expires: DateTime.Now.AddMinutes(Convert.ToInt32(_configuration["Jwt:ExpirationInMinutes"])),
                         signingCredentials: new SigningCredentials(signingKey, SecurityAlgorithms.HmacSha256)
             );
 
