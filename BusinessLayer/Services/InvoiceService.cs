@@ -62,7 +62,7 @@ namespace BusinessLayer.Services
         }
         public async Task<Invoice> CreateInvoice(InvoiceDTO invoicedto)
         {
-            var invoicenum = invoicedto.InvoiceNumber.Substring(4);
+            var invoicenum = invoicedto.InvoiceNumber.Substring(3);
             
             Invoice invoice = new Invoice();
             var itemList = JsonConvert.DeserializeObject<List<Item>>(invoicedto.Items);
