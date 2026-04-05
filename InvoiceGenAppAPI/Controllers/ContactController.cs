@@ -19,6 +19,8 @@ namespace ZucoInvoiceApp.Controllers
                 _contactService = contactService;
         }
 
+
+        
         [HttpGet("GetAllContacts")]
 
         public async Task<IActionResult> GetAllContacts()

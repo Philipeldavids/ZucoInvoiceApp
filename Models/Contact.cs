@@ -15,6 +15,8 @@ namespace Models
         public string CustomerEmail { get; set; }
         public string CustomerAddress { get; set; }
         public string CustomerPhoneNumber { get; set; }
+
+        public string CustomerTin {  get; set; }
         public Invoice? Invoice { get; set; }
 
         public string UserId { get; set; }

@@ -15,6 +15,8 @@ namespace Models
         public int InvoiceID { get; set; }
         public int? InvoiceNumber { get; set; }
         public string? Client { get; set; }
+
+        public string? ClientTin { get; set; }
         public string? CreatedDate { get; set; } 
        // public Status Status { get; set; }
         public string? ImageURl {  get; set; }
@@ -25,7 +27,9 @@ namespace Models
         public string? FootNote { get; set; }
 
         //private decimal totalPrice;
-        public decimal? TotalPrice { get; set; }
+        public decimal? TotalTaxInclusive{ get; set; }
+
+        public decimal? SubTotal{ get; set; }
 
         public List<Item> Items { get; set; } = new List<Item>();
     }

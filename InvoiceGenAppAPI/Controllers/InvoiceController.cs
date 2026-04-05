@@ -1,13 +1,7 @@
 ﻿using BusinessLayer.Services;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Models;
 using Models.DTO;
-using static BusinessLayer.Services.EmailService;
-using System.Net.Mail;
-using System.Net.Mime;
 
 namespace InvoiceGenAppAPI.Controllers
 {

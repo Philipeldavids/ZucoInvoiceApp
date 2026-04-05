@@ -14,6 +14,8 @@ namespace DataLayer.DTO
         public string CustomerAddress { get; set; }
         public string CustomerPhoneNumber { get; set; }
         public string UserId { get; set; }
+
+        public string CustomerTin { get; set; }
         
     }
 }

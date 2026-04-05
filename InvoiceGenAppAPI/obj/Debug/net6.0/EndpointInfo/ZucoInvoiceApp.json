@@ -606,6 +606,13 @@
                     "type": "number",
                     "format": "double"
                   },
+                  "ClientTin": {
+                    "type": "string"
+                  },
+                  "SubTotal": {
+                    "type": "number",
+                    "format": "double"
+                  },
                   "Items": {
                     "type": "string"
                   },
@@ -631,6 +638,12 @@
                   "style": "form"
                 },
                 "TotalPrice": {
+                  "style": "form"
+                },
+                "ClientTin": {
+                  "style": "form"
+                },
+                "SubTotal": {
                   "style": "form"
                 },
                 "Items": {
@@ -1103,6 +1116,10 @@
           "userId": {
             "type": "string",
             "nullable": true
+          },
+          "customerTin": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -1133,6 +1150,10 @@
             "type": "string",
             "nullable": true
           },
+          "clientTin": {
+            "type": "string",
+            "nullable": true
+          },
           "createdDate": {
             "type": "string",
             "nullable": true
@@ -1154,7 +1175,12 @@
             "type": "string",
             "nullable": true
           },
-          "totalPrice": {
+          "totalTaxInclusive": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "subTotal": {
             "type": "number",
             "format": "double",
             "nullable": true

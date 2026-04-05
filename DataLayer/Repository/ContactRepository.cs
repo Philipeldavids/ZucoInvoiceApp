@@ -30,6 +30,11 @@ namespace DataLayer.Repository
             return contact;
         }
 
+        //public async Task<List<string>> GetContactTin (string ContactName)
+        //{
+        //    var contactTin = _context.Contacts.Where(x => x.CustomerName == ContactName).Select(x => x.CustomerTin).ToList();
+        //    return contactTin;
+        //}
         public async Task<bool> EditContact(Contact contact)
         {
             _context.Contacts.Update(contact);

@@ -20,6 +20,10 @@ namespace Models.DTO
 
         public string? FootNote { get; set; }
         public decimal? TotalPrice { get; set; }
+
+        public string? ClientTin {  get; set; }
+
+        public decimal? SubTotal {  get; set; }
         public string? Items { get; set; }
 
         public string? UserId { get; set; }

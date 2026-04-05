@@ -1,5 +1,6 @@
 ﻿using DataLayer.DTO;
 using DataLayer.Repository;
+using Microsoft.AspNetCore.SignalR;
 using Models;
 using Models.DTO;
 using System;
@@ -30,6 +31,13 @@ namespace BusinessLayer.Services
 
         }
 
+        //public async Task<List<string>> GetContactTin(string ContactName)
+        //{
+        //    var contact = await _contactRepository.GetContactTin(ContactName);
+
+        //    return contact;
+
+        //}
         public async Task<bool> EditContact(string Id, ContactDTO contact)
         {
 
@@ -40,6 +48,7 @@ namespace BusinessLayer.Services
             contct.CustomerEmail = contact.CustomerEmail;
             contct.CustomerName = contact.CustomerName; 
             contct.CustomerPhoneNumber = contact.CustomerPhoneNumber;
+            contct.CustomerTin = contact.CustomerTin;
 
             return await _contactRepository.EditContact(contct);
         }
@@ -62,7 +71,8 @@ namespace BusinessLayer.Services
             contact.CustomerAddress = contactDTO.CustomerAddress;
             contact.CustomerPhoneNumber = contactDTO.CustomerPhoneNumber;
             contact.CustomerName   = contactDTO.CustomerName;
-            contact.CustomerEmail = contactDTO.CustomerEmail;            
+            contact.CustomerEmail = contactDTO.CustomerEmail;  
+            contact.CustomerTin = contactDTO.CustomerTin;
             contact.UserId = contactDTO.UserId;
             
             

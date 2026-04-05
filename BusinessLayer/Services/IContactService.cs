@@ -8,6 +8,8 @@ namespace BusinessLayer.Services
     {
         Task<bool> EditContact(string Id, ContactDTO contact);
         Task<Contact> GetContactById(string Id);
+
+       // Task<List<string>> GetContactTin(string ContactName);
         Task<IEnumerable<Contact>> GetAll();
         Task<List<Contact>> GetContactByUser(string UserId);
         Task<bool> AddContact(ContactDTO contactDTO);

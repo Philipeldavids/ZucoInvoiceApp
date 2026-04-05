@@ -56,7 +56,7 @@ namespace DataLayer.Database
                 .HasKey(e => e.ContactId);
                 
             modelBuilder.Entity<Invoice>()
-                .Property(e => e.TotalPrice)
+                .Property(e => e.TotalTaxInclusive)
                 .IsRequired()
                 .HasColumnType("decimal(18,2)");
 

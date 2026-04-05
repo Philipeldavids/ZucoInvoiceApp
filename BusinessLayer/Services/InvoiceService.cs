@@ -87,8 +87,10 @@ namespace BusinessLayer.Services
        
             invoice.InvoiceNumber = int.Parse(invoicenum);
             invoice.Client = invoicedto.ContactName;
+            invoice.ClientTin = invoicedto.ClientTin;
             invoice.CreatedDate = DateTimeOffset.UtcNow.ToString("yyyy-MM-dd");
-            invoice.TotalPrice = invoicedto.TotalPrice;
+            invoice.TotalTaxInclusive = invoicedto.TotalPrice;
+            invoice.SubTotal = invoicedto.SubTotal;
             invoice.Items = itemList;
             invoice.FootNote = invoicedto.FootNote;
             invoice.Tax = invoicedto.Tax;

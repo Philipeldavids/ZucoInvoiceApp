@@ -6,6 +6,7 @@ namespace DataLayer.Repository
     {
         Task<bool> EditContact(Contact contact);
         Task<Contact> GetContactById(string Id);
+        //Task<List<string>> GetContactTin(string ContactName);
         Task<IEnumerable<Contact>> GetAll();
         Task<List<Contact>> GetContactByUser(string UserId);
         Task<bool> AddContact(Contact contact);

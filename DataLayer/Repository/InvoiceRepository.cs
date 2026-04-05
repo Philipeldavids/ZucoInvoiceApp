@@ -64,7 +64,7 @@ namespace DataLayer.Repository
                            CreatedDate = item.CreatedDate,                          
                            Tax = item.Tax,
                            FootNote = item.FootNote,
-                           TotalPrice = item.TotalPrice,
+                           TotalTaxInclusive = item.TotalTaxInclusive,
                            Items = item.Items,
                        };
             return data.ToList();
