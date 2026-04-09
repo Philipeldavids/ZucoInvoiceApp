@@ -5,6 +5,7 @@ using DataLayer.Database;
 using DataLayer.Interface;
 using DataLayer.Repository;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query;
@@ -125,7 +126,10 @@ builder.Services.AddSingleton(cloudinary);
 builder.Services.AddIdentity<User, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
-                
+
+builder.Services.AddDataProtection()
+.PersistKeysToFileSystem(new DirectoryInfo(@"C:\DataProtectionKeys"))
+.SetApplicationName("ZucoInvoiceApp");
 
 builder.Services.Configure<IdentityOptions>(options =>
 {

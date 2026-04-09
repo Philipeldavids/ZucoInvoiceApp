@@ -59,10 +59,10 @@ namespace InvoiceGenAppAPI.Controllers
 
             var token = await _userManager.GeneratePasswordResetTokenAsync(user);
             Console.WriteLine(token);
-            var encodedToken = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(token));
+            //var encodedToken = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(token));
             //var encoded = Uri.EscapeDataString(token);
             
-            var resetLink = $"https://zuco.com.ng/reset-password?email={dto.Email}&token={encodedToken}";
+            var resetLink = $"https://zuco.com.ng/reset-password?email={dto.Email}&token={Uri.EscapeDataString(token)}";
 
             await _emailService.SendEmailAsync(dto.Email, "Reset Password",
                 $"Click the link below to reset your password:<br/><a href='{HtmlEncoder.Default.Encode(resetLink)}'>Reset Password</a>");
@@ -76,9 +76,9 @@ namespace InvoiceGenAppAPI.Controllers
             var user = await _userManager.FindByEmailAsync(dto.Email);
             if (user == null)
                 return BadRequest("User not found");
+            var decodedToken = Uri.UnescapeDataString(dto.Token);
 
-          
-            var result = await _userManager.ResetPasswordAsync(user, Encoding.UTF8.GetString(WebEncoders.Base64UrlDecode(dto.Token)), dto.NewPassword);
+            var result = await _userManager.ResetPasswordAsync(user, decodedToken, dto.NewPassword);
             if (!result.Succeeded)
                 return BadRequest(result.Errors);
 
