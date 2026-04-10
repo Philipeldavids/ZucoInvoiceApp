@@ -130,7 +130,7 @@ namespace BusinessLayer.Services
             else {
 
 
-                //existing.UserId = userId;
+                existing.UserId = userId;
                 existing.PlanName = planName;
                 existing.StartDate = DateTime.UtcNow;
                 existing.EndDate = DateTime.UtcNow.AddDays(days);
