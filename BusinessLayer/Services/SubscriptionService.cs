@@ -93,6 +93,7 @@ namespace BusinessLayer.Services
                 existing.IsActive = true;
                 existing.PaymentReference = reference;
                 
+                _context.Subscriptions.Update(existing);
             }
 
             await _context.SaveChangesAsync();
@@ -130,7 +131,7 @@ namespace BusinessLayer.Services
             else {
 
 
-                existing.UserId = userId;
+                //existing.UserId = userId;
                 existing.PlanName = planName;
                 existing.StartDate = DateTime.UtcNow;
                 existing.EndDate = DateTime.UtcNow.AddDays(days);
@@ -138,7 +139,7 @@ namespace BusinessLayer.Services
                 existing.PaymentReference = reference;
                
 
-                _context.Subscriptions.Add(existing);
+                _context.Subscriptions.Update(existing);
             }
             
             await _context.SaveChangesAsync();
