@@ -58,14 +58,15 @@ namespace InvoiceGenAppAPI.Controllers
                 return BadRequest("User not found");
 
             var token = await _userManager.GeneratePasswordResetTokenAsync(user);
-            Console.WriteLine(token);
-            //var encodedToken = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(token));
-            //var encoded = Uri.EscapeDataString(token);
-            
-            var resetLink = $"https://zuco.com.ng/reset-password?email={dto.Email}&token={Uri.EscapeDataString(token)}";
+
+            // 1. Convert token to bytes, then to a URL-safe Base64 string
+            var encodedToken = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(token));
+           // HtmlEncoder.Default.Encode(
+            // 2. Use the encodedToken in the URL (no need for Uri.EscapeDataString anymore)
+            var resetLink = $"http://localhost:3000/reset-password?email={dto.Email}&token={encodedToken}";
 
             await _emailService.SendEmailAsync(dto.Email, "Reset Password",
-                $"Click the link below to reset your password:<br/><a href='{HtmlEncoder.Default.Encode(resetLink)}'>Reset Password</a>");
+                $"Click the link below to reset your password:<br/><a href='{resetLink}'>Reset Password</a>");
 
             return Ok("Password reset link sent successfully");
         }
@@ -76,9 +77,14 @@ namespace InvoiceGenAppAPI.Controllers
             var user = await _userManager.FindByEmailAsync(dto.Email);
             if (user == null)
                 return BadRequest("User not found");
-            var decodedToken = Uri.UnescapeDataString(dto.Token);
 
-            var result = await _userManager.ResetPasswordAsync(user, decodedToken, dto.NewPassword);
+            // 1. Decode the URL-safe token back to the original format
+            var decodedBytes = WebEncoders.Base64UrlDecode(dto.Token);
+            var originalToken = Encoding.UTF8.GetString(decodedBytes);
+
+            // 2. Pass the decoded originalToken to Identity
+            var result = await _userManager.ResetPasswordAsync(user, originalToken, dto.NewPassword);
+
             if (!result.Succeeded)
                 return BadRequest(result.Errors);
 
