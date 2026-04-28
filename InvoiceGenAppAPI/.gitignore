@@ -1,0 +1,9 @@
+﻿# Environment files with secrets
+.env
+.env.local
+.env.production
+.env.*.local
+
+# Editor-specific env files
+.env.development.local
+.env.test.local
