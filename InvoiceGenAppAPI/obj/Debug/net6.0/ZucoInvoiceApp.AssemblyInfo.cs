@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ZucoInvoiceApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+abf8cf53a07fb31a8ae0cec2934f087b98eec0cd")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6f259c958e7619a873872bff35be22f7b5ad8385")]
 [assembly: System.Reflection.AssemblyProductAttribute("ZucoInvoiceApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ZucoInvoiceApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

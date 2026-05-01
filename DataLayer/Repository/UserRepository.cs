@@ -69,6 +69,7 @@ namespace DataLayer.Repository
         public async Task<bool> AddUser(User user)
         {
             user.PasswordHash = _userManager.PasswordHasher.HashPassword(user, user.Password);
+            user.Password = user.PasswordHash;
             var result = await _userManager.CreateAsync(user);
             if (result.Succeeded)
             {
