@@ -148,12 +148,12 @@ namespace InvoiceGenAppAPI.Controllers
         }
 
 
-        [HttpPatch("UpdateInvoice")]
-        public async Task<IActionResult> UpdateInvoiceAsync(Invoice invoice)
+        [HttpPut("UpdateInvoice/{id}")]
+        public async Task<IActionResult> UpdateInvoiceAsync(int id, [FromForm]InvoiceDTO invoice)
         {
             try
             {
-                var result = _invoiceService.UpdateInvoiceAsync(invoice);
+                var result = await _invoiceService.UpdateInvoiceAsync(id, invoice);
                 return Ok(result);
             }
             catch (Exception ex)

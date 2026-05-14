@@ -499,15 +499,65 @@
   {
     "ContainingType": "InvoiceGenAppAPI.Controllers.InvoiceController",
     "Method": "UpdateInvoiceAsync",
-    "RelativePath": "api/v1/Invoice/UpdateInvoice",
-    "HttpMethod": "PATCH",
+    "RelativePath": "api/v1/Invoice/UpdateInvoice/{id}",
+    "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "invoice",
-        "Type": "Models.Invoice",
+        "Name": "id",
+        "Type": "System.Int32",
         "IsRequired": true
+      },
+      {
+        "Name": "InvoiceNumber",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ContactName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Image",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tax",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "FootNote",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "TotalPrice",
+        "Type": "System.Nullable\u00601[[System.Decimal, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "ClientTin",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "SubTotal",
+        "Type": "System.Nullable\u00601[[System.Decimal, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Items",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "UserId",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

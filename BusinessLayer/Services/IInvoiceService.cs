@@ -15,7 +15,7 @@ namespace BusinessLayer.Services
         Task<int?> GetInvoiceNumber();
         Task<Invoice> CreateInvoice(InvoiceDTO invoicedto);
         Task<Invoice> GetInvoiceById(int Id);
-        Task<bool> UpdateInvoiceAsync(Invoice invoice);
+        Task<bool> UpdateInvoiceAsync(int id, InvoiceDTO invoice);
         Task<bool> DeleteInvoiceAsync(int Id);
         Task<List<Invoice>> GetInvoice();
 

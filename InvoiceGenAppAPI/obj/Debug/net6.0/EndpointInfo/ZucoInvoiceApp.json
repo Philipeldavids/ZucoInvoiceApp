@@ -749,26 +749,95 @@
         }
       }
     },
-    "/api/v1/Invoice/UpdateInvoice": {
-      "patch": {
+    "/api/v1/Invoice/UpdateInvoice/{id}": {
+      "put": {
         "tags": [
           "Invoice"
         ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
         "requestBody": {
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
-                "$ref": "#/components/schemas/Invoice"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Invoice"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/Invoice"
+                "type": "object",
+                "properties": {
+                  "InvoiceNumber": {
+                    "type": "string"
+                  },
+                  "ContactName": {
+                    "type": "string"
+                  },
+                  "Image": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "Tax": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "FootNote": {
+                    "type": "string"
+                  },
+                  "TotalPrice": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "ClientTin": {
+                    "type": "string"
+                  },
+                  "SubTotal": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "Items": {
+                    "type": "string"
+                  },
+                  "UserId": {
+                    "type": "string"
+                  }
+                }
+              },
+              "encoding": {
+                "InvoiceNumber": {
+                  "style": "form"
+                },
+                "ContactName": {
+                  "style": "form"
+                },
+                "Image": {
+                  "style": "form"
+                },
+                "Tax": {
+                  "style": "form"
+                },
+                "FootNote": {
+                  "style": "form"
+                },
+                "TotalPrice": {
+                  "style": "form"
+                },
+                "ClientTin": {
+                  "style": "form"
+                },
+                "SubTotal": {
+                  "style": "form"
+                },
+                "Items": {
+                  "style": "form"
+                },
+                "UserId": {
+                  "style": "form"
+                }
               }
             }
           }
@@ -1129,101 +1198,6 @@
         "properties": {
           "email": {
             "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "Invoice": {
-        "type": "object",
-        "properties": {
-          "invoiceID": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "invoiceNumber": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "client": {
-            "type": "string",
-            "nullable": true
-          },
-          "clientTin": {
-            "type": "string",
-            "nullable": true
-          },
-          "createdDate": {
-            "type": "string",
-            "nullable": true
-          },
-          "imageURl": {
-            "type": "string",
-            "nullable": true
-          },
-          "tax": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "userId": {
-            "type": "string",
-            "nullable": true
-          },
-          "footNote": {
-            "type": "string",
-            "nullable": true
-          },
-          "totalTaxInclusive": {
-            "type": "number",
-            "format": "double",
-            "nullable": true
-          },
-          "subTotal": {
-            "type": "number",
-            "format": "double",
-            "nullable": true
-          },
-          "items": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Item"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "Item": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "nullable": true
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
-          },
-          "quantity": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "discount": {
-            "type": "number",
-            "format": "float",
-            "nullable": true
-          },
-          "unitPrice": {
-            "type": "number",
-            "format": "float",
-            "nullable": true
-          },
-          "amount": {
-            "type": "number",
-            "format": "float",
             "nullable": true
           }
         },

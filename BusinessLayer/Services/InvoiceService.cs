@@ -126,8 +126,53 @@ namespace BusinessLayer.Services
             var result = await _unitOfWork.InvoiceRepository.DeleteInvoice(Id);
             return result;
         }
-        public async Task<bool> UpdateInvoiceAsync(Invoice invoice)
+        public async Task<bool> UpdateInvoiceAsync(int id, InvoiceDTO invoicedto)
         {
+            var invoice = await _unitOfWork.InvoiceRepository.GetInvoiceByIdAsync(id);
+            if (invoice == null)
+                throw new Exception("Invoice not Found");
+            
+                
+
+            invoice.Client = invoicedto.ContactName;
+            invoice.ClientTin = invoicedto.ClientTin;
+            invoice.SubTotal = invoicedto.SubTotal;
+            invoice.Tax = invoicedto.Tax;
+            invoice.TotalTaxInclusive = invoicedto.TotalPrice;
+            invoice.FootNote = invoicedto.FootNote;
+            invoice.UserId = invoicedto.UserId;
+
+            invoice.Items.Clear();
+
+            var items = JsonConvert.DeserializeObject<List<ItemDTO>>(invoicedto.Items);
+
+            foreach (var item in items)
+            {
+                invoice.Items.Add(new Item
+                {
+                    Description = item.Description,
+                    Quantity = item.Quantity,
+                    UnitPrice = item.UnitPrice,
+                    Amount = item.Amount,
+                    Discount = item.Discount
+                });
+            }
+            try
+            {
+                if (invoicedto.Image != null)
+                {
+                    var getImageUrl = await _cloudinaryService.UploadFileAsync(invoicedto.Image);
+                    invoice.ImageURl = getImageUrl.SecureUrl.ToString();
+                    await _unitOfWork.CompanyProfileRepository.SaveImageurl(Guid.Parse(invoicedto.UserId), invoice.ImageURl);
+                }
+
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
             var result = await _unitOfWork.InvoiceRepository.UpdateInvoice(invoice);
             return result;
         }
