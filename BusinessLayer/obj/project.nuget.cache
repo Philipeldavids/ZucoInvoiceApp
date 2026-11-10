@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "z3Eb7LtOUBk=",
+  "dgSpecHash": "h/qV0syIcLg=",
   "success": true,
   "projectFilePath": "C:\\Users\\oloru\\source\\repos\\ZucoInvoiceApp\\BusinessLayer\\BusinessLayer.csproj",
   "expectedPackageFiles": [
@@ -122,7 +122,67 @@
     {
       "code": "NU1902",
       "level": "Warning",
+      "message": "Package 'SixLabors.ImageSharp' 3.1.6 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-gwg2-r3hj-4w44",
+      "projectPath": "C:\\Users\\oloru\\source\\repos\\ZucoInvoiceApp\\BusinessLayer\\BusinessLayer.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\oloru\\source\\repos\\ZucoInvoiceApp\\BusinessLayer\\BusinessLayer.csproj",
+      "libraryId": "SixLabors.ImageSharp",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "message": "Package 'SixLabors.ImageSharp' 3.1.6 has a known high severity vulnerability, https://github.com/advisories/GHSA-j3p4-wp97-rph4",
+      "projectPath": "C:\\Users\\oloru\\source\\repos\\ZucoInvoiceApp\\BusinessLayer\\BusinessLayer.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\oloru\\source\\repos\\ZucoInvoiceApp\\BusinessLayer\\BusinessLayer.csproj",
+      "libraryId": "SixLabors.ImageSharp",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "message": "Package 'SixLabors.ImageSharp' 3.1.6 has a known high severity vulnerability, https://github.com/advisories/GHSA-j9gm-c75j-xc9q",
+      "projectPath": "C:\\Users\\oloru\\source\\repos\\ZucoInvoiceApp\\BusinessLayer\\BusinessLayer.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\oloru\\source\\repos\\ZucoInvoiceApp\\BusinessLayer\\BusinessLayer.csproj",
+      "libraryId": "SixLabors.ImageSharp",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "message": "Package 'SixLabors.ImageSharp' 3.1.6 has a known high severity vulnerability, https://github.com/advisories/GHSA-jjfr-hcj7-qf5w",
+      "projectPath": "C:\\Users\\oloru\\source\\repos\\ZucoInvoiceApp\\BusinessLayer\\BusinessLayer.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\oloru\\source\\repos\\ZucoInvoiceApp\\BusinessLayer\\BusinessLayer.csproj",
+      "libraryId": "SixLabors.ImageSharp",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1902",
+      "level": "Warning",
       "message": "Package 'SixLabors.ImageSharp' 3.1.6 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-rxmq-m78w-7wmc",
+      "projectPath": "C:\\Users\\oloru\\source\\repos\\ZucoInvoiceApp\\BusinessLayer\\BusinessLayer.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\oloru\\source\\repos\\ZucoInvoiceApp\\BusinessLayer\\BusinessLayer.csproj",
+      "libraryId": "SixLabors.ImageSharp",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1902",
+      "level": "Warning",
+      "message": "Package 'SixLabors.ImageSharp' 3.1.6 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-wmxv-xphr-5c9g",
       "projectPath": "C:\\Users\\oloru\\source\\repos\\ZucoInvoiceApp\\BusinessLayer\\BusinessLayer.csproj",
       "warningLevel": 1,
       "filePath": "C:\\Users\\oloru\\source\\repos\\ZucoInvoiceApp\\BusinessLayer\\BusinessLayer.csproj",
